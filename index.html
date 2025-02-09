@@ -130,6 +130,18 @@
     <div class="container">
         <h1>Efficient Speech Language Modeling via Energy Distance in Continuous Space</h1>
         <p>We introduce <strong>SLED</strong>, an alternative approach to speech language modeling by encoding speech waveforms into <strong>continuous latent representation</strong> sequences and modeling them autoregressively using an <strong>energy distance</strong> objective in this continuous space.</p>
+        
+        <!-- Model Overview Section -->
+        <div class="section" id="model-overview">
+            <h2>Model Overview</h2>
+            <p>Unlike discrete-valued tokens based language modeling approaches, MELLE generates the continuous variational mel-spectrogram conditioned on textual and acoustic prompts, using a single-stage decoder-only model as its foundational structure, coupled with the Latent Sampling Module. Variational inference is incorporated into MELLE to facilitate sampling mechanisms, thereby enhancing the output diversity and model robustness.</p>
+            <div class="model-diagram">
+                <!-- You can include the image or diagram here -->
+                <img src="/mnt/data/image.png" alt="Model Overview Diagram" style="width: 100%; height: auto; border-radius: 10px;">
+            </div>
+        </div>
+        
+        
         <h2>Audio Samples</h2>
         <!-- 选项卡 -->
         <div class="tabs">
