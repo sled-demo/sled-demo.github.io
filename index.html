@@ -28,6 +28,10 @@
             margin: 20px 0;
         }
         h2 {
+            font-size: 28px;
+            margin: 0 0 10px 0; /* 将 margin-bottom 调整为更小的值 */
+        }
+        h3 {
             font-size: 24px;
             margin: 0 0 10px 0; /* 将 margin-bottom 调整为更小的值 */
         }
@@ -126,7 +130,7 @@
     <div class="container">
         <h1>Efficient Speech Language Modeling via Energy Distance in Continuous Space</h1>
         <p>We introduce <strong>SLED</strong>, an alternative approach to speech language modeling by encoding speech waveforms into <strong>continuous latent representation</strong> sequences and modeling them autoregressively using an <strong>energy distance</strong> objective in this continuous space.</p>
-        
+        <h2>Audio Samples</h2>
         <!-- 选项卡 -->
         <div class="tabs">
             <div class="tab active" onclick="showTab(0)">3s Prefix as Prompt</div>
@@ -136,7 +140,7 @@
         <!-- 选项卡内容 -->
         <div class="content active" id="tab-0">
             <div class="sample-container">
-                <h2>3s Prefix as Prompt</h2>
+                <h3>3s Prefix as Prompt</h3>
                 <!-- 第一个sample -->
                 <div class="sample">
                     <div class="text-container">
@@ -257,7 +261,7 @@
 
         <div class="content" id="tab-1">
             <div class="sample-container">
-                <h2>Reference Utterance as Prompt</h2>
+                <h3>Reference Utterance as Prompt</h3>
                 <!-- 第一个sample -->
                 <div class="sample">
                     <div class="text-container">
