@@ -236,7 +236,7 @@
                     </div>
                 </div>
                 <!-- 返回按钮 -->
-                <button class="back-button" onclick="showTab(0)">Back</button>
+                <button class="back-button" onclick="goBack()">Back</button>
             </div>
         </div>
 
@@ -300,7 +300,7 @@
                     </div>
                 </div>
                 <!-- 返回按钮 -->
-                <button class="back-button" onclick="showTab(1)">Back</button>
+                <button class="back-button" onclick="goBack()">Back</button>
             </div>
         </div>
     </div>
@@ -315,6 +315,18 @@
 
             tabs[index].classList.add('active');
             contents[index].classList.add('active');
+        }
+    </script>
+
+    <script>
+        function goBack() {
+            // 获取选项卡部分并滚动到该位置
+            const tabsSection = document.querySelector('.tabs');
+            tabsSection.scrollIntoView({ behavior: 'smooth' });
+        
+            // 如果想让 back 按钮直接跳回选项卡而不改变内容，可以简单地触发该选项卡的显示
+            const previousIndex = tabHistory[tabHistory.length - 2]; // 获取前一个选项卡
+            showTab(previousIndex);
         }
     </script>
 </body>
