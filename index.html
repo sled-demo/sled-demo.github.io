@@ -1,1 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SLED demopage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f5f5f5;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        /* 样式化选项卡 */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 10px 20px;
+            margin-right: 20px;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: 700;
+            border-radius: 5px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            border-bottom: 2px solid transparent; /* 默认没有下划线 */
+        }
+        .tab:hover {
+            background-color: #ddd;
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+        }
+        .tab.active {
+            background-color: #007BFF;
+            color: white;
+            border-bottom: 2px solid #007BFF; /* 激活状态下有蓝色下划线 */
+        }
+        /* 样式化 sample 容器 */
+        .sample-container {
+            background-color: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .sample {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+        .text-container {
+            margin-bottom: 15px;
+        }
+        .text-container p {
+            margin: 5px 0;
+        }
+        /* Text */
+        .text-label {
+            color: #A3D88D; /* 绿色 */
+        }
+        .text-content {
+            color: black; /* 黑色 */
+        }
+        /* Prompt Speech & Synthesized Speech */
+        .speech-label {
+            color: #4A90E2; /* 低饱和度蓝色 */
+        }
+        .audio-container {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        audio {
+            width: 100%;
+            max-width: 400px;
+            margin-top: 10px;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Efficient Speech Language Modeling via Energy Distance in Continuous Space</h1>
+        <p>We introduce <strong>SLED</strong>, an alternative approach to speech language modeling by encoding speech waveforms into continuous latent representation sequences and modeling them autoregressively using an energy distance objective in this continuous space.</p>
+        
+        <!-- 选项卡 -->
+        <div class="tabs">
+            <div class="tab active" onclick="showTab(0)">3s Prefix as Prompt</div>
+            <div class="tab" onclick="showTab(1)">Reference Utterance as Prompt</div>
+        </div>
+
+        <!-- 选项卡内容 -->
+        <div class="content active" id="tab-0">
+            <h2>3s Prefix as Prompt</h2>
+            <div class="sample-container">
+                <!-- 第一个sample -->
+                <div class="sample">
+                    <div class="text-container">
+                        <p class="text-label"><strong>Text:</strong> <span class="text-content">Number ten, fresh nelly is waiting on you, good night husband.</span></p>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Prompt Speech:</strong></p>
+                        <audio controls>
+                            <source src="prompt1.wav" type="audio/wav">
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Synthesized Speech:</strong></p>
+                        <audio controls>
+                            <source src="synthesized1.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- 第二个sample -->
+                <div class="sample">
+                    <div class="text-container">
+                        <p class="text-label"><strong>Text:</strong> <span class="text-content">Number ten, fresh nelly is waiting on you, good night husband.</span></p>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Prompt Speech:</strong></p>
+                        <audio controls>
+                            <source src="prompt2.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Synthesized Speech:</strong></p>
+                        <audio controls>
+                            <source src="synthesized2.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- 第三个sample -->
+                <div class="sample">
+                    <div class="text-container">
+                        <p class="text-label"><strong>Text:</strong> <span class="text-content">Number ten, fresh nelly is waiting on you, good night husband.</span></p>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Prompt Speech:</strong></p>
+                        <audio controls>
+                            <source src="prompt3.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Synthesized Speech:</strong></p>
+                        <audio controls>
+                            <source src="synthesized3.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content" id="tab-1">
+            <h2>Reference Utterance as Prompt</h2>
+            <div class="sample-container">
+                <!-- 第一个sample -->
+                <div class="sample">
+                    <div class="text-container">
+                        <p class="text-label"><strong>Text:</strong> <span class="text-content">Number ten, fresh nelly is waiting on you, good night husband.</span></p>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Prompt Speech:</strong></p>
+                        <audio controls>
+                            <source src="prompt1.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Synthesized Speech:</strong></p>
+                        <audio controls>
+                            <source src="synthesized1.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- 第二个sample -->
+                <div class="sample">
+                    <div class="text-container">
+                        <p class="text-label"><strong>Text:</strong> <span class="text-content">Number ten, fresh nelly is waiting on you, good night husband.</span></p>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Prompt Speech:</strong></p>
+                        <audio controls>
+                            <source src="prompt2.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Synthesized Speech:</strong></p>
+                        <audio controls>
+                            <source src="synthesized2.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                </div>
+
+                <!-- 第三个sample -->
+                <div class="sample">
+                    <div class="text-container">
+                        <p class="text-label"><strong>Text:</strong> <span class="text-content">Number ten, fresh nelly is waiting on you, good night husband.</span></p>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Prompt Speech:</strong></p>
+                        <audio controls>
+                            <source src="prompt3.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Synthesized Speech:</strong></p>
+                        <audio controls>
+                            <source src="synthesized3.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showTab(index) {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.content');
+
+            tabs.forEach(tab => tab.classList.remove('active'));
+            contents.forEach(content => content.classList.remove('active'));
+
+            tabs[index].classList.add('active');
+            contents[index].classList.add('active');
+        }
+    </script>
+</body>
+</html>
 
