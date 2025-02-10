@@ -166,6 +166,7 @@
         <div class="tabs">
             <div class="tab active" onclick="showTab(0)">3s Prefix as Prompt</div>
             <div class="tab" onclick="showTab(1)">Reference Utterance as Prompt</div>
+            <div class="tab" onclick="showTab(2)">Streaming Synthesis</div>
         </div>
 
         <!-- 选项卡内容 -->
@@ -406,6 +407,31 @@
                 <!-- 返回按钮 -->
                 <button class="back-button" onclick="goBack()">Back</button>
             </div>
+            
+            <div class="content" id="tab-2">
+            <div class="sample-container">
+                <h3>Streaming Synthesis</h3>
+                <!-- 第一个sample -->
+                <div class="sample">
+                    <div class="text-container">
+                        <p class="text-label"><strong>Text:</strong> <span class="text-content">I greatly mourn that one so well-disposed should die in his ignorance and I have sought a goodly hymn can you lead me to him.</span></p>
+                    </div>
+                    <div class="text-container">
+                        <p class="speech-label"><strong>Text Length:</strong></p>
+                        <p class="speech-label"><strong>Interleaving Ratio: 10:50</strong></p>
+                        <p class="speech-label"><strong>Synthesized Speech Length:</strong></p>
+                    </div>
+                    <div class="audio-container">
+                        <p class="speech-label"><strong>Synthesized Speech:</strong></p>
+                        <audio controls>
+                            <source src="cross_1320-122617-0009.wav" type="audio/wav"></audio>
+                        </audio>
+                    </div>
+                </div>
+                <!-- 返回按钮 -->
+                <button class="back-button" onclick="goBack()">Back</button>
+            </div>
+
         </div>
     </div>
 
