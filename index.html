@@ -157,21 +157,20 @@
 <body>
     <div class="container">
         <h1>Efficient Speech Language Modeling via Energy Distance in Continuous Space</h1>
-        <p>We introduce <strong>SLED</strong>, an alternative approach to speech language modeling by encoding speech waveforms into <strong>continuous latent representation</strong> sequences and modeling them autoregressively using an <strong>energy distance</strong> objective in this continuous space.</p>
+        <p>We introduce <strong>SLED</strong>, an alternative approach to speech language modeling by encoding speech waveforms into <strong>continuous representation</strong> sequences and modeling them autoregressively in the continuous latent space using a <strong>maximum mean discrepancy objective</strong>.</p>
         
-        <div class="section" id="model-overview">
+<!--         <div class="section" id="model-overview">
             <div class="model-content">
                 <div class="text-side">
                     <h2>Model Overview</h2>
-                    <p>SLED models the per-step continuous distribution with a lightweight implicit conditional generative module that takes features encoded with autoregressive dependencies and random noise. To measure the discrepancy between the data distribution and the model distribution, we employ a specialized form of maximum mean discrepancy, known as generalized energy distance.</p> 
-<!--                     By selecting an appropriate distance function, the metric becomes a statistically consistent learning objective, enabling efficient training to capture the autoregressive continuous distribution of speech. <strong>SLED eliminates the need for iterative sampling at each autoregressive step or post-AR refinement, significantly improving efficiency in modeling lengthy speech sequences while maintaining sufficient capacity.</strong></p> -->
+                    <p>SLED models the per-step continuous distribution with a lightweight implicit conditional generative module that takes features encoded with autoregressive dependencies and random noise. To measure the discrepancy between the data distribution and the model distribution, we employ a specialized form of maximum mean discrepancy, known as generalized energy distance. By selecting an appropriate distance function, the metric becomes a statistically consistent learning objective, enabling efficient training to capture the autoregressive continuous distribution of speech. <strong>SLED eliminates the need for iterative sampling at each autoregressive step or post-AR refinement, significantly improving efficiency in modeling lengthy speech sequences while maintaining sufficient capacity.</strong></p>
                 </div>
                 <div class="image-side">
                     <!-- 图片放在右边 -->
                     <img src="overview.jpg" alt="Model Overview Diagram" style="width: 80%; height: auto; border-radius: 10px;">
                 </div>
             </div>
-        </div>
+        </div> -->
         
         
         <h2>Audio Samples</h2>
